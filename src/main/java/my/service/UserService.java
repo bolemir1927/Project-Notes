@@ -4,7 +4,7 @@ import my.utils.FileManager;
 
 import java.io.File;
 import java.time.LocalDateTime;
-import java.util.Locale;
+import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 
 public class UserService {
@@ -18,17 +18,20 @@ public class UserService {
         }
         System.out.println("Введите текст: ");
         String text = scanner.nextLine();
-        text = fileName + "-" + LocalDateTime.now() + ": " + text;
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+        String formattedDateTime = LocalDateTime.now().format(formatter);
+        text = fileName + "-" + formattedDateTime + ": " + text;
         FileManager.writeToFile(text, file);
 
     }
 
     public void read(String fileName) {
-        File file = new File(fileName);
+        File file = new File(PATH + fileName + ".txt");
         if (!file.exists()) {
-            System.out.println("Файл для пользователя " + fileName);
+            System.out.println("Файл пользователя " + fileName);
             return;
         }
+        FileManager.readFile(file);
     }
 
     public void delete(String fileName) {

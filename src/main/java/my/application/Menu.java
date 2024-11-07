@@ -38,6 +38,7 @@ public class Menu {
                     break;
                 case 4:
                     System.out.println("Выход из программы.");
+                    System.exit(0);
 
                 default:
                     System.out.println("Некорректный выбор.");
