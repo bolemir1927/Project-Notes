@@ -1,11 +1,13 @@
 package my.application;
 
+import my.service.UserConfig;
 import my.service.UserService;
 
 import java.util.Scanner;
 
 public class Menu {
     public static void main(String[] args) {
+        UserConfig.getInstance().initializeDatabase();
         Scanner scanner = new Scanner(System.in);
         String fileName;
         UserService userService = new UserService();
