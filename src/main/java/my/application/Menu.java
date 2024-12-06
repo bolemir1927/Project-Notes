@@ -1,7 +1,8 @@
 package my.application;
 
 import my.service.UserConfig;
-import my.service.UserService;
+import my.service.FileUserService;
+import my.utils.UserService;
 
 import java.util.Scanner;
 
@@ -10,7 +11,7 @@ public class Menu {
         UserConfig.getInstance().initializeDatabase();
         Scanner scanner = new Scanner(System.in);
         String fileName;
-        UserService userService = new UserService();
+        UserService userService = new FileUserService();
         while (true) {
 
             System.out.println("--- Меню ---");

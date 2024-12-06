@@ -27,10 +27,11 @@ public class UserConfig {
         return INSTANCE;
     }
 
-    public Connection getConnection() throws SQLException {
+    public Connection getConnection() {
         return connection;
     }
 
     public void initializeDatabase() {
+
     }
 }
